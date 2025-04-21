@@ -2,24 +2,25 @@ const tasks = [
   {
     id: 0,
     content: "complete task-management project",
-    rating: "medium",
+    rating: "Medium",
   },
   {
     id: 1,
     content: "setup entega open source project",
-    rating: "hard",
+    rating: "Hard",
   },
 ];
 
 const taskReducer = (state = tasks, action) => {
-  if (action.type === "NEW_TASK") {
-    return state.concat(action.payload);
-  }
+  switch (action.type) {
+    case "NEW_TASK":
+      return state.concat(action.payload);
+    case "REMOVE_TASK":
+      return state.filter((task) => task.id !== action.payload);
 
-  if (action.type === "REMOVE_TASK") {
-    return state.filter((task) => task.id !== action.payload);
+    default:
+      return state;
   }
-  return state;
 };
 
 export const addNewTask = (content) => {

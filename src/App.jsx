@@ -1,24 +1,11 @@
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
 import CurrentTask from "./components/CurrentTask";
+import { useSelector } from "react-redux";
+import './styles/app.css'
 
 function App() {
-
-  const timeToAllocateForTask = (rating) => {
-    switch (rating) {
-      case "easy":
-        return 25;
-
-      case "medium":
-        return 50;
-      case "hard":
-        return 75;
-    }
-  };
-
-  // const currentlySelectedTask = (event) => {
-  //   setCurrentTask(tasks[event.target.value-1])
-  // }
+  const currentTask = useSelector((state) => state.currentTask);
 
   // const pomodoroTimer = () => {
   //   return (
@@ -31,17 +18,19 @@ function App() {
 
   return (
     <div>
-      <TaskForm/>
-      <TaskList/>
-      {/* <select onChange={currentlySelectedTask}>
-        {tasks.map((task, index) => {
-          return (
-            <option key={task.id}>{index+1}</option>
-          )
-        })}
-      </select> */}
-      {/* <CurrentTask currentTask={currentTask} />
-      <div>{pomodoroTimer()}</div> */}
+      <h1>Task Managment Application</h1>
+      <div style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
+        <section>
+          <TaskList />
+        </section>
+        <section>
+          {currentTask === `NONE` ? (
+             <TaskForm />
+          ) : (
+            <CurrentTask />
+          )}
+        </section>
+      </div>
     </div>
   );
 }

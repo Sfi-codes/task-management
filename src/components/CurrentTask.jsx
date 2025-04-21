@@ -1,9 +1,23 @@
+import { useSelector } from "react-redux";
 
-const CurrentTask = (props) => {
-  const currentTask = props.currentTask
+const CurrentTask = () => {
+  const currentTask = useSelector((state) => state.currentTask);
+  
+  const timeToAllocateForTask = (rating) => {
+    switch (rating) {
+      case "Easy":
+        return 25;
+
+      case "Medium":
+        return 50;
+      case "Hard":
+        return 75;
+    }
+  };
+
   return (
-    <div style={{float: 'inline-end'}}>
-      <div>Current task: {currentTask.content}</div>
+    <div>
+      <h1>{currentTask.content}</h1>
       <p>Prequisites</p>
       <ul>
         <li>step 1</li>
@@ -15,10 +29,10 @@ const CurrentTask = (props) => {
         <li>step 1</li>
         <li>step 2</li>
       </ul>
-      <p>Time to complete: {currentTask.time} minutes</p>
-      <p>Pomodoro Intervals: {currentTask.time / 25}</p>
+      <p>Time to complete: {timeToAllocateForTask(currentTask.rating)} minutes</p>
+      <p>Pomodoro Intervals: {timeToAllocateForTask(currentTask.rating) / 25}</p>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentTask
+export default CurrentTask;
