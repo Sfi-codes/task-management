@@ -1,4 +1,5 @@
-.CurrentTask {
-    background-color: #282c34;
-    float: inline-end;
+section{
+    border: 1px solid black;
 }
+
+p{}
