@@ -1,5 +1,16 @@
-section{
-    border: 1px solid black;
+#application-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
-p{}
+section {
+    flex: 1;
+    min-width: 0;
+    padding: 100px;
+    border: 1px solid black;
+    border-radius: 15px
+}

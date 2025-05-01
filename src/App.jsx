@@ -4,6 +4,7 @@ import CurrentTask from "./components/CurrentTask";
 import { useSelector } from "react-redux";
 import './styles/app.css'
 
+//Monotree-features-sections look up for design layout
 function App() {
   const currentTask = useSelector((state) => state.currentTask);
 
@@ -17,20 +18,13 @@ function App() {
   // }
 
   return (
-    <div>
-      <h1>Task Managment Application</h1>
-      <div style={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
-        <section>
-          <TaskList />
-        </section>
-        <section>
-          {currentTask === `NONE` ? (
-             <TaskForm />
-          ) : (
-            <CurrentTask />
-          )}
-        </section>
-      </div>
+    <div id="application-container">
+      <section>
+        <TaskList />
+      </section>
+      <section>
+        <TaskForm />
+      </section>
     </div>
   );
 }

@@ -13,30 +13,21 @@ const TaskList = () => {
   const changeCurrentTaskShown = (id) => {
     dispatch(changeCurrentTask(id));
   };
+  const featureContainer = {
+    border: '1px solid black', maxHeight: ' 100px', overflow: 'auto', borderRadius: '15px'
+  }
+  
 
   return (
-    <div>
+    <div style={featureContainer}>
       {tasks.map((item) => {
         return (
-          <div
-            key={item.id}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "90% 10%",
-              margin: "10px",
-            }}
-          >
-            <div
-              style={{ fontSize: "large" }}
-              onClick={() => changeCurrentTaskShown(item)}
-            >
+          <div key={item.id}>
+            <div onClick={() => changeCurrentTaskShown(item)}>
               {item.content} by <Date></Date>
             </div>
             <div>
-              <button
-                style={{ height: "20px", width: "80px" }}
-                onClick={() => removeTaskFromList(item.id)}
-              >
+              <button onClick={() => removeTaskFromList(item.id)}>
                 Remove
               </button>
             </div>
