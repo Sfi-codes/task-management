@@ -9,6 +9,11 @@ const tasks = [
     content: "setup entega open source project",
     rating: "Hard",
   },
+  {
+    id: 2,
+    content: "Buy gym membership",
+    rating: "Easy",
+  },
 ];
 
 const taskReducer = (state = tasks, action) => {

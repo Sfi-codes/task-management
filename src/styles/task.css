@@ -1,0 +1,21 @@
+#featureContainer1 {
+  border: 0.1px solid lightgrey;
+  border-radius: 15px;
+  max-height: 148px;
+  min-height: 148px;
+  overflow: auto,
+}
+
+#featureContainer2 {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+input {
+  outline: none;
+  height: 40px;
+  font-size: 15px;
+  border: 0.1px solid lightgrey
+}
